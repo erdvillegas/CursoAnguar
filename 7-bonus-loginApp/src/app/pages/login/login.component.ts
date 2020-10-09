@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { pluck } from 'rxjs/operators';
 import { UsuarioModel } from 'src/app/models/usuario.models';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { UsuarioModel } from 'src/app/models/usuario.models';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   usuario: UsuarioModel = new UsuarioModel();
 
@@ -18,9 +20,15 @@ export class LoginComponent implements OnInit {
 
   login(form: NgForm) {
     if (form.invalid) { return; }
-    
-    console.log(form);
-    console.log(this.usuario);
+    this.auth.login(this.usuario)
+      .pipe(
+        pluck('idToken')
+      )
+      .subscribe({
+        next: data => console.log(data),
+        error: error => console.log(error.error.error.message),
+        complete: () => console.log('completo')
+      });
 
   }
 
