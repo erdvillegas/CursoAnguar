@@ -22,11 +22,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
     this.leerToken();
-   }
+  }
 
 
   logout() {
-
+    localStorage.removeItem('token');
   }
 
   /**
@@ -77,7 +77,14 @@ export class AuthService {
    * @param idToken Id del token
    */
   private guardarToken(idToken: string) {
+    this.userToken = idToken;
     localStorage.setItem('token', idToken);
+
+    const hoy = new Date();
+    hoy.setSeconds(3600);
+
+    localStorage.setItem('expira', hoy.getTime().toString());
+
   }
 
   leerToken() {
@@ -85,6 +92,26 @@ export class AuthService {
       this.userToken = localStorage.getItem('token');
     } else {
       this.userToken = '';
+    }
+  }
+
+  /**
+   * Revisa si la el token se encuentra guardado
+   */
+  estaAutenticado(): boolean {
+
+    if (this.userToken.length > 2) {
+      return false;
+    } else {
+      const expira = Number(localStorage.getItem('expira'));
+      const expiraDate = new Date();
+      expiraDate.setTime(expira);
+
+      if (expiraDate > new Date()) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 }
