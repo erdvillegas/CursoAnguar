@@ -55,11 +55,11 @@ export class ChatService {
 
   agregarMensaje(texto: string) {
 
-    let mensaje: Mensaje = {
-      nombre: 'Dany',
+    const mensaje: Mensaje = {
+      nombre: this.usuario.nombre,
       mensaje: texto,
       fecha: new Date().getTime(),
-      uid: new Date().getTime().toString()
+      uid: this.usuario.uid
     };
 
     return this.itemsCollection.add(mensaje);

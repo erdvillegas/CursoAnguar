@@ -6,9 +6,9 @@
         <button class="btn btn-outline-danger" type="button" (click)="chatServices.logout()">Salir</button>
     </div>
 
-    <!-- <div class="chat-window">
+    <div class="chat-window" *ngIf="chatServices.usuario.uid">
         <app-chat></app-chat>
-    </div> -->
+    </div>
 
     <app-login> *ngIf="!chatServices.usuario.uid"</app-login>
 

@@ -12,9 +12,7 @@ export class LoginComponent {
   constructor(public chatServices: ChatService) { }
 
   ingresar(proveedor: string) {
-
-    if (proveedor === 'google')
-      this.chatServices.login(proveedor);
+    this.chatServices.login(proveedor);
   }
 
 }
