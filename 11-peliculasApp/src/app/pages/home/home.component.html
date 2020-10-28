@@ -1,5 +1,7 @@
 <h1>Cartelera</h1>
 
+<app-loading *ngIf="cargando"></app-loading>
+
 <div class="row" *ngIf="movies.length > 0">
     <div class="col">
         <app-slideshow [movies]="moviesSlidesShow"></app-slideshow>
