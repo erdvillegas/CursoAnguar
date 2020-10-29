@@ -18,7 +18,6 @@ export class PeliculasPosterGridComponent implements OnInit {
   }
 
   onMoviesClick(movie: Movie) {
-    console.log(movie);
     this.route.navigate(['pelicula', movie.id]);
   }
 

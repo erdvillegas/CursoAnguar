@@ -9,10 +9,11 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
 import { LoadingComponent } from './loading/loading.component';
+import { CastSlideShowComponent } from './cast-slide-show/cast-slide-show.component';
 
 
 @NgModule({
-  declarations: [NavbarComponent, SlideshowComponent, PeliculasPosterGridComponent, LoadingComponent],
+  declarations: [NavbarComponent, SlideshowComponent, PeliculasPosterGridComponent, LoadingComponent, CastSlideShowComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -24,7 +25,8 @@ import { LoadingComponent } from './loading/loading.component';
     SlideshowComponent,
     RatingModule,
     PeliculasPosterGridComponent,
-    LoadingComponent
+    LoadingComponent,
+    CastSlideShowComponent
   ]
 })
 export class ComponentsModule { }
