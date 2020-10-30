@@ -1,4 +1,4 @@
-<div class="row" *ngIf="pelicula" class="text-white">
+<div class="row" *ngIf="pelicula" class="text-white animate__animated animate__fadeIn animate__faster">
     <!-- Imagen -->
     <div class="col-md-6">
         <img [src]="pelicula.poster_path | poster" [alt]="pelicula.title" [title]="pelicula.title"
@@ -19,6 +19,9 @@
             </div>
             <div class="col text-white">
                 {{ pelicula.vote_average | number:'1.1-2' }}
+            </div>
+            <div class="col text-withe">
+                {{pelicula.release_date | date}}
             </div>
         </div>
     </div>

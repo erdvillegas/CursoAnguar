@@ -11,13 +11,12 @@
         </ul>
 
         <div class="d-flex">
-            <input #txtBuscar
-                    (keyup.enter)="buscarPelicula(txtBuscar.value)"
-                    class="form-control mr-sm-2" 
-                    type="search" 
-                    placeholder="Buscar película"
-                    aria-label="Buscar">
-            <button (click)="buscarPelicula(txtBuscar.value)" class="btn btn-outline-success my-2 my-sm-0" type="button">Bucar</button>
+            <form class="form-inline my-2 my-lg-0" #f="ngForm">
+                <input #txtBuscar (keyup.enter)="buscarPelicula(txtBuscar.value)" class="form-control mr-sm-2"
+                    type="search" placeholder="Buscar película" aria-label="Buscar">
+                <button (click)="buscarPelicula(txtBuscar.value)" class="btn btn-outline-success my-2 my-sm-0"
+                    type="submit">Bucar</button>
+            </form>
         </div>
     </div>
 </nav>

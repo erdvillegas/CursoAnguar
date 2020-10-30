@@ -10,6 +10,7 @@ import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
 import { LoadingComponent } from './loading/loading.component';
 import { CastSlideShowComponent } from './cast-slide-show/cast-slide-show.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CastSlideShowComponent } from './cast-slide-show/cast-slide-show.compon
     CommonModule,
     RouterModule,
     RatingModule,
-    PipesModule
+    PipesModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,
