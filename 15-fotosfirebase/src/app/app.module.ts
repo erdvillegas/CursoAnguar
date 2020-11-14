@@ -8,22 +8,27 @@ import { CargaComponent } from './components/carga/carga.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 
 import { environment } from 'src/environments/environment';
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FotosComponent,
-    CargaComponent
+    CargaComponent,
+    NgDropFilesDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [
+    { provide: BUCKET, useValue: environment.firebase.storageBucket}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
