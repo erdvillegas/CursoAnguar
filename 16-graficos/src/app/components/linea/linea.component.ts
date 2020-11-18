@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-linea',
@@ -22,7 +23,7 @@ export class LineaComponent {
   public lineChartColors: Array<any> = [];
 
   public lineChartLegend: boolean = true;
-  public lineChartType: string = 'line';
+  public lineChartType: ChartType = 'line';
 
   public randomize(): void {
     let _lineChartData: Array<any> = new Array(this.lineChartData.length);
